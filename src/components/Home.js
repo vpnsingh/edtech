@@ -24,12 +24,12 @@ const Home = () => {
             </div>
             <div className='home-content'>
                 <div className='container mt-3'>
-                    <h3 className='text-center fw-bold text-primary my-4 fst-italic'>Trending Courses</h3>
+                    <h3 className='text-center fw-bold edtech-text-primary my-4 fst-italic'>Trending Courses</h3>
                     <div className='row justify-content-center'>
                         {/* Angular */}
                         <div className='col-md-4'>
                             <div className="card h-100">
-                                <img className="card-img-top" height="270px" src={AngularImg} alt="Angular" />
+                                <img className="card-img-top home-card-img" src={AngularImg} alt="Angular" />
                                 <div className="card-body">
                                     <h4 className="card-title">Angular - The Complete Guide</h4>
                                     <p className='text-start text-muted'>
@@ -50,7 +50,7 @@ const Home = () => {
                         {/* React */}
                         <div className='col-md-4'>
                             <div className="card h-100">
-                                <img className="card-img-top" height="270px" src={ReactImg} alt="React" />
+                                <img className="card-img-top home-card-img" src={ReactImg} alt="React" />
                                 <div className="card-body">
                                     <h4 className="card-title">React JS - The Complete Guide</h4>
                                     <p className='text-start text-muted'>
@@ -71,7 +71,7 @@ const Home = () => {
                         {/* Python */}
                         <div className='col-md-4'>
                             <div className="card h-100">
-                                <img className="card-img-top" height="270px" src={PythonImg} alt="React" />
+                                <img className="card-img-top home-card-img" src={PythonImg} alt="React" />
                                 <div className="card-body">
                                     <h4 className="card-title">Learn Python Programming Masterclass</h4>
                                     <p className='text-start text-muted'>

@@ -56,13 +56,13 @@ const Header = () => {
                             <Link to="/" className="nav-link active" aria-current="page">Home</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Courses</a>
+                            <Link to="/courses" className="nav-link">Courses</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Profile</a>
+                            <Link to="/profile" className="nav-link">Profile</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link">About us</a>
+                            <Link to="/" className="nav-link">About us</Link>
                         </li>
                     </ul>
                     <div className="d-flex justify-content-center">
