@@ -2,10 +2,13 @@ import React, { useState, useEffect } from 'react'
 import swal from 'sweetalert'
 import { doLogin } from '../config/authenticationHelper'
 import { Link, useNavigate } from 'react-router-dom'
-
+import { useDispatch } from 'react-redux'
+import { setUser } from '../actions/action'
+ 
 const Signin = () => {
 
     const navigate = useNavigate()
+    const dispatch = useDispatch()
     const [signinDetails, setSigninDetails] = useState({
         email : '',
         password : ''
@@ -33,6 +36,7 @@ const Signin = () => {
         .then((res) => {
             console.log(res.data)
             localStorage.setItem('edtech-user', JSON.stringify(res.data))
+            dispatch(setUser(res.data))
             navigate('/home')
         })
         .catch(err => {

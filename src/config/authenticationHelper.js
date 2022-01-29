@@ -12,3 +12,15 @@ export const doSignup = (data) => {
 export const doLogout = (id) => {
     return axios.post(LOGOUT, id)
 }
+
+export const isAuthenticated = () => {
+    if(typeof window == "undefined"){
+        return false;
+    }
+    
+    if(localStorage.getItem('edtech-user')){
+        return JSON.parse(localStorage.getItem('edtech-user'))
+    }else{
+        return false;
+    }
+}
