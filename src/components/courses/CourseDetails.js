@@ -34,24 +34,36 @@ const CourseDetails = () => {
     }
 
     const performAddToCart = () => {
+        let objCourse = {
+            _id: courseData._id, 
+            name: courseData.title, 
+            image: courseData.imageURL,
+            price: courseData.priceAfterDiscount, 
+            quantity : 1
+        }
         if(localStorage.getItem('edtech-cart') != undefined){
             let cartArray = JSON.parse(localStorage.getItem('edtech-cart'))
-            for(let item in cartArray){
-                if(cartArray[item]._id === courseData._id){
-                    swal('Already Added To Cart', '', 'warning')
-                    return
-                }else{
-                    let obj = {_id: courseData._id, quantity : 1}
-                    cartArray.push(obj)
-                    localStorage.setItem('edtech-cart', JSON.stringify(cartArray))
-                    dispatch(addToCart(cartArray))
-                    swal('Added to cart', '', 'success') 
+            if(cartArray.length > 0){
+                for(let item in cartArray){
+                    if(cartArray[item]._id === courseData._id){
+                        swal('Already Added To Cart', '', 'warning')
+                        return
+                    }else{
+                        cartArray.push(objCourse)
+                        localStorage.setItem('edtech-cart', JSON.stringify(cartArray))
+                        dispatch(addToCart(cartArray))
+                        swal('Added to cart', '', 'success') 
+                    }
                 }
+            }else{
+                cartArray.push(objCourse)
+                localStorage.setItem('edtech-cart', JSON.stringify(cartArray))
+                dispatch(addToCart(cartArray))
+                swal('Added to cart', '', 'success') 
             }
         }else{
             let cartArray = []
-            let obj = {_id: courseData._id, quantity : 1}
-            cartArray.push(obj)
+            cartArray.push(objCourse)
             localStorage.setItem('edtech-cart', JSON.stringify(cartArray))
             dispatch(addToCart(cartArray))
             swal('Added to cart', '', 'success')

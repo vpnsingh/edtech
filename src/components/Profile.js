@@ -1,8 +1,10 @@
 import React from 'react'
 import UserPic from '../assets/images/user.png'
+import { useSelector } from 'react-redux'
 
 const Profile = () => {
 
+    const user = useSelector(state => state.MyReducer.user)
     return (
         <div className='container my-3'>
             <h3 className='text-center'>Profile Section</h3>
@@ -12,9 +14,9 @@ const Profile = () => {
                     <div className="card text-center" >
                         <div className="card-body">
                             <img className='rounded-circle' src={UserPic} />
-                            <h5 className="card-title">Name</h5>
-                            <p className="card-text">abc@edtech.in</p>
-                            <a className="btn btn-primary">NORMAL USER</a>
+                            <h5 className="card-title">{user.firstName + user.lastName}</h5>
+                            <p className="card-text">{user.email}</p>
+                            <a className="btn btn-primary">{user.role}</a>
                         </div>
                     </div>
                 </div>
@@ -22,23 +24,23 @@ const Profile = () => {
                     <ul className="list-group list-group-flush">
                         <li className="list-group-item py-3 d-flex justify-content-between">
                             <span className='fw-bold'>User ID</span>
-                            <span>10001abc87</span>
+                            <span>{user.id}</span>
                         </li>
                         <li className="list-group-item py-3 d-flex justify-content-between">
                             <span className='fw-bold'>First Name</span>
-                            <span>ABC</span>
+                            <span>{user.firstName}</span>
                         </li>
                         <li className="list-group-item py-3 d-flex justify-content-between">
                             <span className='fw-bold'>Last Name</span>
-                            <span>XYZ</span>
+                            <span>{user.lastName}</span>
                         </li>
                         <li className="list-group-item py-3 d-flex justify-content-between">
                             <span className='fw-bold'>Email ID</span>
-                            <span>abc.xyz@edtech.in</span>
+                            <span>{user.email}</span>
                         </li>
                         <li className="list-group-item py-3 d-flex justify-content-between">
                             <span className='fw-bold'>User Type</span>
-                            <span>Admin</span>
+                            <span>{user.role}</span>
                         </li>
                     </ul>
                     <button className='btn btn-secondary mt-4 float-end'>Update Information</button>

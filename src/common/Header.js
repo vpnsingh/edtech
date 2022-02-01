@@ -69,7 +69,7 @@ const Header = () => {
                             <Link to="/profile" className="nav-link">Profile</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/" className="nav-link">About us</Link>
+                            <Link to="/about-us" className="nav-link">About us</Link>
                         </li>
                     </ul>
                     <div className="d-flex justify-content-center">
@@ -77,12 +77,12 @@ const Header = () => {
                             userData.isLoggedIn ? 
                                 <div className='d-flex align-items-center fw-bold text-light'>
                                     <p className='mb-0'>Hello, {userData.username}</p>
-                                    <button className="btn btn-success position-relative py-0">
+                                    <Link to="/cart" className="btn btn-success position-relative py-0">
                                         <FontAwesomeIcon icon={faCartPlus} />
                                         <span className="position-absolute top-40 start-70 translate-middle badge rounded-pill bg-warning">
                                             {cartCount} <span class="visually-hidden">cart item</span>
                                         </span>
-                                    </button>
+                                    </Link>
                                     <button onClick={logout} className="btn btn-danger mx-2">Logout</button>
                                 </div>
                             : 
